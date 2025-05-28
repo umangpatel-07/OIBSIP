@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Temperature Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-100 via-white to-purple-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-blue-200">
+    <h2 class="text-3xl font-bold mb-6 text-center text-blue-800">🌡️ Temperature Converter</h2>
+
+    <!-- Inline Temp Input & Unit Selection -->
+    <div class="mb-4 flex gap-2">
+      <input id="tempInput" type="number" class="flex-1 p-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Enter temperature">
+      <select id="inputUnit" class="w-1/2 p-2 border border-blue-300 rounded-lg">
+        <option value="C">°C</option>
+        <option value="F">°F</option>
+        <option value="K">K</option>
+      </select>
+    </div>
+
+    <!-- Output Unit -->
+    <div class="mb-4">
+      <label class="block mb-1 font-medium text-blue-700">Convert To:</label>
+      <select id="outputUnit" class="w-full p-2 border border-blue-300 rounded-lg">
+        <option value="C">Celsius (°C)</option>
+        <option value="F">Fahrenheit (°F)</option>
+        <option value="K">Kelvin (K)</option>
+      </select>
+    </div>
+
+    <!-- Convert Button -->
+    <button id="convertBtn" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Convert</button>
+
+    <!-- Result -->
+    <div id="result" class="mt-6 text-center text-lg font-semibold text-purple-800"></div>
+  </div>
+
+  <script>
+    const convertBtn = document.getElementById('convertBtn');
+    const tempInput = document.getElementById('tempInput');
+    const inputUnit = document.getElementById('inputUnit');
+    const outputUnit = document.getElementById('outputUnit');
+    const resultDiv = document.getElementById('result');
+
+    convertBtn.addEventListener('click', () => {
+      const temp = parseFloat(tempInput.value);
+      const from = inputUnit.value;
+      const to = outputUnit.value;
+
+      if (isNaN(temp)) {
+        resultDiv.textContent = "❌ Please enter a valid number.";
+        return;
+      }
+
+      if (from === to) {
+        resultDiv.textContent = `✅ Converted Temperature: ${temp.toFixed(2)} °${to}`;
+        return;
+      }
+
+      let tempCelsius;
+
+      // Step 1: Convert to Celsius
+      if (from === 'C') tempCelsius = temp;
+      else if (from === 'F') tempCelsius = (temp - 32) * 5/9;
+      else if (from === 'K') tempCelsius = temp - 273.15;
+
+      // Step 2: Convert to desired unit
+      let converted;
+      if (to === 'C') converted = tempCelsius;
+      else if (to === 'F') converted = (tempCelsius * 9/5) + 32;
+      else if (to === 'K') converted = tempCelsius + 273.15;
+
+      resultDiv.textContent = `✅ Converted Temperature: ${converted.toFixed(2)} °${to}`;
+    });
+  </script>
+</body>
+</html>
