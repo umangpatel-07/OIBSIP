@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umang M. Patel | UI/UX Designer & Front-End Developer</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <style>
+    /* Base styles */
+    :root {
+      --portfolio-blue: #4A90E2;
+      --portfolio-lightblue: #69B9FF;
+      --portfolio-gray: #F5F8FA;
+      --portfolio-darkgray: #6E7A8A;
+      --portfolio-accent: #50E3C2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: white;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      transition: all 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 1.25rem 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-primary {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--portfolio-blue);
+    }
+
+    .logo-secondary {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #444;
+    }
+
+    .desktop-nav {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .desktop-nav {
+        display: flex;
+        gap: 2.5rem;
+      }
+    }
+
+    .desktop-nav button {
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 1rem;
+      cursor: pointer;
+      text-transform: capitalize;
+      transition: color 0.3s;
+    }
+
+    .desktop-nav button:hover {
+      color: var(--portfolio-blue);
+    }
+
+    .mobile-menu-button {
+      display: block;
+      background: none;
+      border: none;
+      color: #666;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-button {
+        display: none;
+      }
+    }
+
+    .menu-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding: 1rem 0;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu button {
+      background: none;
+      border: none;
+      padding: 0.5rem 1rem;
+      text-align: left;
+      color: #666;
+      font-size: 1rem;
+      cursor: pointer;
+      text-transform: capitalize;
+      transition: all 0.3s;
+      border-radius: 0.5rem;
+    }
+
+    .mobile-menu button:hover {
+      background-color: var(--portfolio-gray);
+      color: var(--portfolio-blue);
+    }
+
+    /* Hero section styles */
+    .hero-section {
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .hero-section {
+        padding-top: 10rem;
+        padding-bottom: 8rem;
+      }
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .bg-gradient-1 {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, #F0F4F8, white, rgba(74, 144, 226, 0.05));
+    }
+
+    .bg-gradient-2 {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top, rgba(80, 227, 194, 0.1), transparent, transparent);
+      opacity: 0.6;
+    }
+
+    .bg-gradient-3 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 33.333%;
+      background: linear-gradient(to top, white, transparent);
+    }
+
+    .section-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 640px) {
+      .section-container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .section-container {
+        padding: 0 2rem;
+      }
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .hero-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: linear-gradient(to right, rgba(74, 144, 226, 0.2), rgba(80, 227, 194, 0.2));
+      color: var(--portfolio-blue);
+      font-weight: 500;
+      font-size: 0.875rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .live-dot {
+      position: relative;
+      display: flex;
+      height: 8px;
+      width: 8px;
+    }
+
+    .ping {
+      position: absolute;
+      display: inline-flex;
+      height: 100%;
+      width: 100%;
+      border-radius: 9999px;
+      background-color: var(--portfolio-blue);
+      opacity: 0.75;
+      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    .dot {
+      position: relative;
+      display: inline-flex;
+      border-radius: 9999px;
+      height: 8px;
+      width: 8px;
+      background-color: var(--portfolio-blue);
+    }
+
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #333, var(--portfolio-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 3.75rem;
+      }
+    }
+
+    .highlight {
+      color: var(--portfolio-blue);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--portfolio-darkgray);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 1.875rem;
+      }
+    }
+
+    .underline-animation {
+      position: relative;
+      display: inline-block;
+    }
+
+    .underline-animation::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--portfolio-blue), rgba(80, 227, 194, 0.4));
+      border-radius: 9999px;
+    }
+
+    .hero-description {
+      color: #666;
+      max-width: 32rem;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-buttons {
+        flex-direction: row;
+      }
+    }
+
+    .primary-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1rem;
+      background: linear-gradient(to right, var(--portfolio-blue), rgba(74, 144, 226, 0.9));
+      color: white;
+      font-weight: 500;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(74, 144, 226, 0.2);
+      transition: all 0.3s;
+    }
+
+    .primary-button:hover {
+      background: linear-gradient(to right, rgba(74, 144, 226, 0.9), var(--portfolio-blue));
+      box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+    }
+
+    .arrow-icon {
+      height: 16px;
+      width: 16px;
+    }
+
+    .outline-button {
+      padding: 0.625rem 1rem;
+      background: transparent;
+      color: var(--portfolio-blue);
+      font-weight: 500;
+      border: 1px solid var(--portfolio-blue);
+      border-radius: 0.375rem;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+
+    .outline-button:hover {
+      background-color: rgba(74, 144, 226, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-image {
+        justify-content: flex-end;
+      }
+    }
+
+    .profile-container {
+      position: relative;
+    }
+
+    .profile-glow {
+      position: absolute;
+      inset: -2px;
+      border-radius: 9999px;
+      background: linear-gradient(to top right, var(--portfolio-blue), var(--portfolio-accent), #90CAF9);
+      opacity: 0.4;
+      filter: blur(10px);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.4;
+      }
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    .profile-backdrop {
+      position: absolute;
+      inset: -4px;
+      border-radius: 9999px;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .profile-frame {
+      width: 16rem;
+      height: 16rem;
+      border-radius: 9999px;
+      background: linear-gradient(to top right, #EBF5FF, white);
+      border: 4px solid white;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 768px) {
+      .profile-frame {
+        width: 20rem;
+        height: 20rem;
+      }
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-fallback {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom right, rgba(235, 245, 255, 0.5), rgba(74, 144, 226, 0.05));
+      font-size: 4rem;
+      font-weight: bold;
+      color: var(--portfolio-blue);
+      opacity: 0;
+    }
+
+    .avatar-image:not([src]), .avatar-image[src=""], .avatar-image.error {
+      display: none;
+    }
+
+    .avatar-image:not([src]) ~ .avatar-fallback, 
+    .avatar-image[src=""] ~ .avatar-fallback, 
+    .avatar-image.error ~ .avatar-fallback {
+      opacity: 1;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .hero-image.fade-in {
+      animation-delay: 0.2s;
+    }
+    
+    /* About Section */
+    .about-section {
+      background-color: white;
+      padding: 4rem 0;
+    }
+    
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .section-title {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 50%;
+      height: 4px;
+      background-color: var(--portfolio-blue);
+      border-radius: 9999px;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .about-heading {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .about-paragraph {
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .education {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .education-card {
+      padding: 1rem;
+      border-left: 4px solid var(--portfolio-blue);
+      background-color: rgba(245, 248, 250, 0.3);
+      border-top-right-radius: 0.375rem;
+      border-bottom-right-radius: 0.375rem;
+    }
+    
+    .education-card:nth-child(2) {
+      border-left-color: rgba(74, 144, 226, 0.7);
+      background-color: rgba(245, 248, 250, 0.2);
+    }
+    
+    .education-card:nth-child(3) {
+      border-left-color: rgba(74, 144, 226, 0.4);
+      background-color: rgba(245, 248, 250, 0.1);
+    }
+    
+    .education-title {
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .education-subtitle {
+      font-size: 0.875rem;
+      color: var(--portfolio-darkgray);
+    }
+    
+    .education-description {
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      color: #666;
+    }
+    
+    .experience-card {
+      padding: 1rem;
+      background-color: rgba(74, 144, 226, 0.05);
+      border-radius: 0.375rem;
+      border: 1px solid rgba(74, 144, 226, 0.2);
+    }
+    
+    .experience-title {
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .experience-description {
+      margin-top: 0.25rem;
+      color: #555;
+    }
+    
+    /* Skills Section */
+    .skills-section {
+      background-color: var(--portfolio-gray);
+      padding: 4rem 0;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .skill-item {
+      margin-bottom: 2rem;
+    }
+    
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .skill-name {
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .skill-percentage {
+      font-size: 0.875rem;
+      color: var(--portfolio-darkgray);
+    }
+    
+    .skill-bar {
+      height: 0.5rem;
+      background-color: var(--portfolio-gray);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background-color: var(--portfolio-blue);
+      border-radius: 9999px;
+    }
+    
+    .competencies {
+      margin-top: 4rem;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .competencies-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #333;
+    }
+    
+    .competencies-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    
+    @media (min-width: 640px) {
+      .competencies-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .competencies-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    
+    .competency-item {
+      padding: 1rem;
+      background-color: rgba(245, 248, 250, 0.3);
+      border-radius: 0.375rem;
+      transition: background-color 0.3s;
+    }
+    
+    .competency-item:hover {
+      background-color: rgba(74, 144, 226, 0.05);
+    }
+    
+    .competency-icon {
+      font-size: 2rem;
+    }
+    
+    .competency-name {
+      margin-top: 0.5rem;
+      font-weight: 500;
+      color: #333;
+    }
+    
+    /* Services Section */
+    .services-section {
+      background-color: white;
+      padding: 4rem 0;
+    }
+    
+    .services-description {
+      max-width: 48rem;
+      color: #666;
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    
+    .service-card {
+      background-color: rgba(245, 248, 250, 0.2);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+    }
+    
+    .service-card:hover {
+      background-color: rgba(245, 248, 250, 0.4);
+    }
+    
+    .service-icon-container {
+      width: 4rem;
+      height: 4rem;
+      background-color: white;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1rem;
+      transition: background-color 0.3s;
+    }
+    
+    .service-card:hover .service-icon-container {
+      background-color: rgba(74, 144, 226, 0.05);
+    }
+    
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.75rem;
+    }
+    
+    .service-description {
+      color: #666;
+    }
+    
+    .design-process {
+      margin-top: 4rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(74, 144, 226, 0.2);
+      border-radius: 0.5rem;
+      background-color: rgba(74, 144, 226, 0.05);
+    }
+    
+    .process-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .process-steps {
+        gap: 0;
+      }
+    }
+    
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .step-number {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      background-color: var(--portfolio-blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+    }
+    
+    .step-name {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+    
+    .step-divider {
+      display: none;
+    }
+    
+    @media (min-width: 768px) {
+      .step-divider {
+        display: flex;
+        align-items: center;
+        padding: 0 0.5rem;
+      }
+      
+      .divider-line {
+        width: 2rem;
+        height: 2px;
+        background-color: rgba(74, 144, 226, 0.3);
+      }
+    }
+    
+    /* Portfolio Section */
+    .portfolio-section {
+      background-color: var(--portfolio-gray);
+      padding: 4rem 0;
+    }
+    
+    .portfolio-description {
+      max-width: 48rem;
+      color: #666;
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    
+    .portfolio-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background-color: white;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+    
+    .portfolio-card:hover {
+      transform: translateY(-0.25rem);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .portfolio-image-container {
+      height: 13rem;
+      overflow: hidden;
+    }
+    
+    .portfolio-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .portfolio-card:hover .portfolio-image {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+    
+    .portfolio-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .portfolio-status {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+    
+    .status-completed {
+      background-color: rgba(34, 197, 94, 0.1);
+      color: rgb(21, 128, 61);
+    }
+    
+    .status-progress {
+      background-color: rgba(245, 158, 11, 0.1);
+      color: rgb(180, 83, 9);
+    }
+    
+    .portfolio-description {
+      font-size: 0.875rem;
+      color: #666;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+    
+    .portfolio-tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .portfolio-tag {
+      font-size: 0.75rem;
+      background-color: rgba(74, 144, 226, 0.1);
+      color: var(--portfolio-blue);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+    
+    .portfolio-date {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--portfolio-darkgray);
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      background-color: white;
+      padding: 4rem 0;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .contact-text {
+      color: #666;
+    }
+    
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .contact-icon-container {
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--portfolio-gray);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+    
+    .contact-method:hover .contact-icon-container {
+      background-color: rgba(74, 144, 226, 0.1);
+    }
+    
+    .contact-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--portfolio-blue);
+    }
+    
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-label {
+      font-size: 0.875rem;
+      color: var(--portfolio-darkgray);
+    }
+    
+    .contact-value {
+      color: #333;
+    }
+    
+    .contact-value a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-value a:hover {
+      color: var(--portfolio-blue);
+    }
+    
+    .opportunity-card {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: var(--portfolio-gray);
+      border-radius: 0.5rem;
+    }
+    
+    .opportunity-title {
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    
+    .opportunity-description {
+      color: #666;
+    }
+    
+    .contact-form-container {
+      background-color: rgba(245, 248, 250, 0.3);
+      padding: 2rem;
+      border-radius: 0.5rem;
+    }
+    
+    .form-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 0.25rem;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--portfolio-gray);
+      border-radius: 0.375rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+    
+    .form-input:focus {
+      border-color: transparent;
+      box-shadow: 0 0 0 2px var(--portfolio-blue);
+    }
+    
+    .form-textarea {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--portfolio-gray);
+      border-radius: 0.375rem;
+      outline: none;
+      resize: vertical;
+      min-height: 8rem;
+      transition: all 0.3s;
+    }
+    
+    .form-textarea:focus {
+      border-color: transparent;
+      box-shadow: 0 0 0 2px var(--portfolio-blue);
+    }
+    
+    .form-submit {
+      margin-top: 0.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: rgba(74, 144, 226, 0.05);
+      padding: 2rem 0;
+      border-top: 1px solid rgba(74, 144, 226, 0.1);
+    }
+    
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-content {
+        flex-direction: row;
+      }
+    }
+    
+    .footer-logo {
+      margin-bottom: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-logo {
+        margin-bottom: 0;
+      }
+    }
+    
+    .footer-logo-text {
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+    
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .footer-nav {
+        flex-direction: row;
+        gap: 2rem;
+        margin-bottom: 0;
+      }
+    }
+    
+    .footer-link {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s;
+      text-transform: capitalize;
+      text-align: center;
+    }
+    
+    .footer-link:hover {
+      color: var(--portfolio-blue);
+    }
+    
+    .footer-bottom {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(74, 144, 226, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    @media (min-width: 640px) {
+      .footer-bottom {
+        flex-direction: row;
+      }
+    }
+    
+    .footer-copyright {
+      font-size: 0.875rem;
+      color: #666;
+    }
+    
+    .footer-credit {
+      font-size: 0.875rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+    
+    @media (min-width: 640px) {
+      .footer-credit {
+        margin-top: 0;
+      }
+    }
+    
+    /* Helper classes for animations */
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    [style*="animation-delay"] {
+      opacity: 0;
+    }
+    
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-primary">Umang</span>
+        <span class="logo-secondary"> Patel</span>
+      </div>
+      
+      <nav class="desktop-nav">
+        <button onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'})">Home</button>
+        <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About</button>
+        <button onclick="document.getElementById('skills').scrollIntoView({behavior: 'smooth'})">Skills</button>
+        <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Services</button>
+        <button onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">Portfolio</button>
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
+      </nav>
+      
+      <button class="mobile-menu-button" id="mobile-menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <div class="mobile-menu" id="mobile-menu">
+      <button onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu();">Home</button>
+      <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu();">About</button>
+      <button onclick="document.getElementById('skills').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu();">Skills</button>
+      <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu();">Services</button>
+      <button onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu();">Portfolio</button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu();">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-bg">
+        <div class="bg-gradient-1"></div>
+        <div class="bg-gradient-2"></div>
+        <div class="bg-gradient-3"></div>
+      </div>
+      
+      <div class="section-container">
+        <div class="hero-content">
+          <!-- Text Content -->
+          <div class="hero-text fade-in">
+            <div class="availability-badge">
+              <span class="live-dot">
+                <span class="ping"></span>
+                <span class="dot"></span>
+              </span>
+              Available for freelance projects
+            </div>
+            
+            <h1 class="hero-title">
+              Hi, I'm <span class="highlight">Umang M. Patel</span>
+            </h1>
+            
+            <h2 class="hero-subtitle">
+              <span class="underline-animation">
+                UI/UX Designer & Front-End Developer
+              </span>
+            </h2>
+            
+            <p class="hero-description">
+              I create clean, user-centered designs and bring them to life with modern 
+              front-end development. Currently pursuing B-Tech IT and focused on 
+              improving my skills in UI/UX design.
+            </p>
+            
+            <div class="hero-buttons">
+              <button 
+                class="primary-button"
+                onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})"
+              >
+                View My Work
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+              
+              <button 
+                class="outline-button"
+                onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+              >
+                Let's Connect
+              </button>
+            </div>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="hero-image fade-in">
+            <div class="profile-container">
+              <div class="profile-glow"></div>
+              <div class="profile-backdrop"></div>
+              <div class="profile-frame">
+                <div class="avatar">
+                  <img 
+                    src="https://i.postimg.cc/4d0jb0hC/20250114-112030.jpg" 
+                    alt="Umang M. Patel" 
+                    class="avatar-image"
+                    onerror="this.classList.add('error')"
+                  />
+                  <div class="avatar-fallback">U</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <h2 class="section-title">About Me</h2>
+        
+        <div class="about-grid">
+          <!-- Personal Bio -->
+          <div class="about-text">
+            <h3 class="about-heading">Personal Bio</h3>
+            <p class="about-paragraph">
+              I'm Umang M. Patel, a UI/UX designer and front-end developer from Gujarat. 
+              I'm passionate about creating intuitive, visually appealing digital experiences 
+              that solve real problems.
+            </p>
+            <p class="about-paragraph">
+              Currently, I'm working as an intern at Oasis Infobyte where I'm gaining 
+              valuable industry experience and refining my design skills. When I'm not designing 
+              interfaces or coding, I enjoy playing cricket and volleyball, and I love to travel 
+              and explore new places.
+            </p>
+            <p class="about-paragraph">
+              My goal is to bridge the gap between design and development, creating seamless 
+              experiences that users love.
+            </p>
+          </div>
+
+          <!-- Education -->
+          <div class="education">
+            <h3 class="about-heading">Education</h3>
+            
+            <div class="education-card">
+              <h4 class="education-title">Parul University of Engineering and Technology</h4>
+              <p class="education-subtitle">B-Tech IT | 2022 - 2026</p>
+              <p class="education-description">Currently pursuing my Bachelor's degree in Information Technology</p>
+            </div>
+            
+            <div class="education-card">
+              <h4 class="education-title">P. Chandra International School</h4>
+              <p class="education-subtitle">Higher Secondary Education | Completed 2022</p>
+              <p class="education-description">Achievement: 48%</p>
+            </div>
+            
+            <div class="education-card">
+              <h4 class="education-title">P. Chandra International School</h4>
+              <p class="education-subtitle">Secondary Education | Completed 2020</p>
+              <p class="education-description">Achievement: 66%</p>
+            </div>
+            
+            <div class="experience-card">
+              <h4 class="experience-title">Current Experience</h4>
+              <p class="experience-description">
+                Internship at Oasis Infobyte, focusing on UI/UX design projects and 
+                continuously developing my skills in design and front-end development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="section-container">
+        <h2 class="section-title">My Skills</h2>
+        
+        <div class="skills-grid">
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0s;">
+            <div class="skill-header">
+              <span class="skill-name">UI/UX Design (Figma)</span>
+              <span class="skill-percentage">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.1s;">
+            <div class="skill-header">
+              <span class="skill-name">HTML</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.2s;">
+            <div class="skill-header">
+              <span class="skill-name">CSS</span>
+              <span class="skill-percentage">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.3s;">
+            <div class="skill-header">
+              <span class="skill-name">C Programming</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.4s;">
+            <div class="skill-header">
+              <span class="skill-name">Responsive Web Design</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.5s;">
+            <div class="skill-header">
+              <span class="skill-name">Wireframing & Prototyping</span>
+              <span class="skill-percentage">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.6s;">
+            <div class="skill-header">
+              <span class="skill-name">Team Collaboration</span>
+              <span class="skill-percentage">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.7s;">
+            <div class="skill-header">
+              <span class="skill-name">Python (Basic)</span>
+              <span class="skill-percentage">60%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 60%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.8s;">
+            <div class="skill-header">
+              <span class="skill-name">Java (Basic)</span>
+              <span class="skill-percentage">45%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 45%"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="competencies">
+          <h3 class="competencies-title">Core Competencies</h3>
+          <div class="competencies-grid">
+            <div class="competency-item">
+              <span class="competency-icon">🎨</span>
+              <h4 class="competency-name">Design Thinking</h4>
+            </div>
+            
+            <div class="competency-item">
+              <span class="competency-icon">👥</span>
+              <h4 class="competency-name">User-Centered Approach</h4>
+            </div>
+            
+            <div class="competency-item">
+              <span class="competency-icon">🧩</span>
+              <h4 class="competency-name">Problem Solving</h4>
+            </div>
+            
+            <div class="competency-item">
+              <span class="competency-icon">🔍</span>
+              <h4 class="competency-name">Attention to Detail</h4>
+            </div>
+            
+            <div class="competency-item">
+              <span class="competency-icon">📚</span>
+              <h4 class="competency-name">Continuous Learning</h4>
+            </div>
+            
+            <div class="competency-item">
+              <span class="competency-icon">⚙️</span>
+              <h4 class="competency-name">Design to Development</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="section-container">
+        <h2 class="section-title">My Services</h2>
+        
+        <p class="services-description">
+          I offer comprehensive UI/UX design services focused on creating intuitive, 
+          visually appealing digital experiences. Using tools like Figma and my 
+          knowledge of front-end development, I deliver complete design solutions.
+        </p>
+        
+        <div class="services-grid">
+          <div class="service-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0s;">
+            <div class="service-icon-container">✨</div>
+            <h3 class="service-title">UI Design</h3>
+            <p class="service-description">Creating visually appealing interfaces that align with brand identity and user expectations.</p>
+          </div>
+          
+          <div class="service-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.1s;">
+            <div class="service-icon-container">🔍</div>
+            <h3 class="service-title">UX Design</h3>
+            <p class="service-description">Designing user-centered experiences that are intuitive, accessible, and solve real problems.</p>
+          </div>
+          
+          <div class="service-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.2s;">
+            <div class="service-icon-container">📐</div>
+            <h3 class="service-title">Wireframing</h3>
+            <p class="service-description">Developing low and high-fidelity wireframes to visualize interface layouts and information architecture.</p>
+          </div>
+          
+          <div class="service-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.3s;">
+            <div class="service-icon-container">🖱️</div>
+            <h3 class="service-title">Prototyping</h3>
+            <p class="service-description">Building interactive prototypes to demonstrate functionality and gather user feedback early.</p>
+          </div>
+          
+          <div class="service-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.4s;">
+            <div class="service-icon-container">📱</div>
+            <h3 class="service-title">Responsive Design</h3>
+            <p class="service-description">Creating layouts that adapt seamlessly to different screen sizes and devices.</p>
+          </div>
+          
+          <div class="service-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.5s;">
+            <div class="service-icon-container">💻</div>
+            <h3 class="service-title">Design to Development</h3>
+            <p class="service-description">Bridging the gap between design and implementation with clean handoff and front-end development.</p>
+          </div>
+        </div>
+        
+        <div class="design-process">
+          <h3 class="process-title">My Design Process</h3>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <p class="step-name">Research</p>
+            </div>
+            
+            <div class="step-divider">
+              <div class="divider-line"></div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <p class="step-name">Ideate</p>
+            </div>
+            
+            <div class="step-divider">
+              <div class="divider-line"></div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <p class="step-name">Wireframe</p>
+            </div>
+            
+            <div class="step-divider">
+              <div class="divider-line"></div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <p class="step-name">Design</p>
+            </div>
+            
+            <div class="step-divider">
+              <div class="divider-line"></div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">5</div>
+              <p class="step-name">Prototype</p>
+            </div>
+            
+            <div class="step-divider">
+              <div class="divider-line"></div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">6</div>
+              <p class="step-name">Test</p>
+            </div>
+            
+            <div class="step-divider">
+              <div class="divider-line"></div>
+            </div>
+            
+            <div class="process-step">
+              <div class="step-number">7</div>
+              <p class="step-name">Implement</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="section-container">
+        <h2 class="section-title">My Portfolio</h2>
+        
+        <p class="portfolio-description">
+          Here are some of my recent projects showcasing my UI/UX design skills 
+          and front-end development capabilities.
+        </p>
+        
+        <div class="portfolio-grid">
+          <div class="portfolio-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0s;">
+            <div class="portfolio-image-container">
+              <img 
+                src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" 
+                alt="Waste Management System App UI Design" 
+                class="portfolio-image"
+              />
+            </div>
+            
+            <div class="portfolio-content">
+              <div class="portfolio-header">
+                <h3 class="portfolio-title">Waste Management System App UI Design</h3>
+                <span class="portfolio-status status-completed">Completed</span>
+              </div>
+              
+              <p class="portfolio-description">
+                Mobile app prototype created in Figma with wireframes, user flows, and interactive components focused on intuitive UX and modern UI.
+              </p>
+              
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">UI/UX</span>
+                <span class="portfolio-tag">Figma</span>
+                <span class="portfolio-tag">Mobile App</span>
+              </div>
+              
+              <div class="portfolio-date">
+                Completed: March 2025
+              </div>
+            </div>
+          </div>
+          
+          <div class="portfolio-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.15s;">
+            <div class="portfolio-image-container">
+              <img 
+                src="https://i.postimg.cc/pLzhF87b/IMG-20250523-WA0000.jpg" 
+                alt="Grocery Web App" 
+                class="portfolio-image"
+              />
+            </div>
+            
+            <div class="portfolio-content">
+              <div class="portfolio-header">
+                <h3 class="portfolio-title">Grocery Web App</h3>
+                <span class="portfolio-status status-progress">In Progress</span>
+              </div>
+              
+              <p class="portfolio-description">
+                An e-commerce platform for grocery shopping with intuitive navigation and seamless checkout process.
+              </p>
+              
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">UI/UX</span>
+                <span class="portfolio-tag">Figma</span>
+                <span class="portfolio-tag">Web App</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="portfolio-card" style="animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.3s;">
+            <div class="portfolio-image-container">
+              <img 
+                src="https://images.unsplash.com/photo-1487466365202-1afdb86c764e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" 
+                alt="Sports Slot and Ground Booking Web App" 
+                class="portfolio-image"
+              />
+            </div>
+            
+            <div class="portfolio-content">
+              <div class="portfolio-header">
+                <h3 class="portfolio-title">Sports Slot and Ground Booking Web App</h3>
+                <span class="portfolio-status status-progress">In Progress</span>
+              </div>
+              
+              <p class="portfolio-description">
+                A platform for booking sports facilities with calendar integration and real-time availability updates.
+              </p>
+              
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">UI/UX</span>
+                <span class="portfolio-tag">Figma</span>
+                <span class="portfolio-tag">Web App</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <h2 class="section-title">Contact Me</h2>
+        
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <p class="contact-text">
+              I'm always open to discussing UI/UX design projects, opportunities, or partnerships. 
+              Feel free to reach out through any of the following channels:
+            </p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <p class="contact-label">Email</p>
+                  <p class="contact-value">
+                    <a href="mailto:patelumang301004@gmail.com">patelumang301004@gmail.com</a>
+                  </p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 21v-7a4 4 0 014-4 4 4 0 014 4v7M4 8V5a2 2 0 012-2h4a2 2 0 012 2v3" />
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <p class="contact-label">LinkedIn</p>
+                  <p class="contact-value">
+                    <a 
+                      href="https://www.linkedin.com/in/umang-patel-70b428348" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      linkedin.com/in/umang-patel-70b428348
+                    </a>
+                  </p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <p class="contact-label">Location</p>
+                  <p class="contact-value">
+                    Gujarat, India
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="opportunity-card">
+              <h3 class="opportunity-title">Open to Opportunities</h3>
+              <p class="opportunity-description">
+                I'm currently looking for internships and project opportunities in UI/UX design 
+                and front-end development. If you have a project where my skills might be valuable, 
+                let's connect!
+              </p>
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <h3 class="form-title">Send Me a Message</h3>
+            
+            <form class="contact-form" id="contact-form">
+              <div class="form-group">
+                <label for="name" class="form-label">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-input"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-input"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="subject" class="form-label">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  class="form-input"
+                  placeholder="Enter subject"
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="form-label">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="form-textarea"
+                  placeholder="Enter your message"
+                  required
+                ></textarea>
+              </div>
+              
+              <button
+                type="submit"
+                class="primary-button form-submit"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="footer-logo-text">
+            <span class="logo-primary">Umang</span>
+            <span class="logo-secondary"> Patel</span>
+          </div>
+          <p class="footer-tagline">
+            UI/UX Designer & Front-End Developer
+          </p>
+        </div>
+        
+        <div class="footer-nav">
+          <a href="#home" class="footer-link">home</a>
+          <a href="#about" class="footer-link">about</a>
+          <a href="#skills" class="footer-link">skills</a>
+          <a href="#services" class="footer-link">services</a>
+          <a href="#portfolio" class="footer-link">portfolio</a>
+          <a href="#contact" class="footer-link">contact</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 Umang Patel. All rights reserved.
+        </p>
+        
+        <p class="footer-credit">
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('open');
+      
+      // Change the hamburger icon to X when menu is open
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenuToggle.innerHTML = isOpen 
+        ? '<svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>';
+    }
+    
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    
+    // Handle scroll event to change header style
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+        header.style.padding = '0.75rem 0';
+      } else {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+        header.style.padding = '1.25rem 0';
+      }
+    });
+    
+    // Simple form submission (you would typically send this to a server)
+    const contactForm = document.getElementById('contact-form');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+     const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const subject = document.getElementById('subject').value;
+const message = document.getElementById('message').value;
+
+// Example usage - log or send via fetch
+console.log(name, email, subject, message);
+
+// OR send it somewhere:
+fetch('/send-message', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ name, email, subject, message })
+});
+
+      
+      // This would normally send the data to a server
+      alert(`Thank you ${name} for your message! I'll get back to you soon.`);
+      
+      // Reset form
+      contactForm.reset();
+    });
+    
+    // Initialize animation for elements when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add any additional initialization code here
+    });
+  </script>
+</body>
+</html>
